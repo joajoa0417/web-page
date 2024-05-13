@@ -6,7 +6,7 @@ color: #333;
 }
 
 .dropdown-bar {
-background-color: #4CAF50;
+background-color: #ff91ca;
 color: white;
 position: relative;
 top: 0;
@@ -14,7 +14,7 @@ right: 0;
 padding: 16px;
 font-size: 16px;
 margin-right: 20px; 
-margin-top: 20px; 
+margin-top: 0px; 
 border: none;
 cursor: pointer;
 }
@@ -39,9 +39,8 @@ display: block;
     background-color: #f1f1f1
 }
 
-/* 모달 스타일 */
 .modal {
-    display: none; /* 기본적으로 숨김 */
+    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -53,7 +52,6 @@ display: block;
     background-color: rgba(0,0,0,0.4);
   }
   
-  /* 모달 내용 */
   .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -62,7 +60,6 @@ display: block;
     width: 80%;
   }
   
-  /* 닫기 버튼 */
   .close {
     color: #aaa;
     float: right;
