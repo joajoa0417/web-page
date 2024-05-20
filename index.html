@@ -18,17 +18,60 @@
         </div>
     </div>
 
+     <!-- 콤보 리스트 추가 -->
+ <div>
+    <label for="dashboardSelector">대시보드를 선택하세요:</label>
+    <select id="dashboardSelector">
+        <option value="dashboard1">대시보드 1</option>
+        <option value="dashboard2">대시보드 2</option>
+    </select>
+</div>
+    
     <!--csv 파일 다운로드 창 구현-->
     <div id="csvFile" class="modal">
         <div class="modal-content">
-            <span class="close"&times;></span>
+            <span class="close">&times;</span>
                 <p><a href="https://drive.google.com/file/d/1-9yLKXteh-8xzeEyRprNscQ6k5HTWXd5/view?usp=drive_link.csv" download>0206_pre</a></p>
                 <p><a href="https://drive.google.com/file/d/1-7BG_orNEz7r2LTm_wzKh-RsnZqEntN7/view?usp=drive_link.csv" download>0213_pre</a></p>
         </div>
     </div>
 
-    <!--대시보드 내장 코드--> 
-    <div class='tableauPlaceholder' id='viz1715615183477' style='position: relative'><noscript><a href='#'><img alt='대시보드 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;2_&#47;2_17156151086510&#47;1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='2_17156151086510&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;2_&#47;2_17156151086510&#47;1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='ko-KR' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1715615183477');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else { vizElement.style.width='100%';vizElement.style.height='1577px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+     <!--대시보드1-->
+     <div id="dashboard1" class="dashboard">
+        <div class='tableauPlaceholder' id='viz1716201644825' style='position: relative'><noscript><a href='#'><img alt='대시보드 2 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;02&#47;02062&#47;2_1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='02062&#47;2_1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;02&#47;02062&#47;2_1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='ko-KR' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1716201644825');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    </div>
+
+    <!--대시보드2-->
+    <div id="dashboard2" class="dashboard">
+        <div class='tableauPlaceholder' id='viz1716201687367' style='position: relative'><noscript><a href='#'><img alt='대시보드 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;02&#47;0206_17161973918210&#47;1_1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='0206_17161973918210&#47;1_1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;02&#47;0206_17161973918210&#47;1_1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='ko-KR' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1716201687367');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else { vizElement.style.width='100%';vizElement.style.height='1327px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    </div>
+
+    <script>
+    window.onload = function() {
+        var dashboards = document.querySelectorAll(".dashboard");
+        dashboards.forEach(function(dashboard) {
+            dashboard.style.display = 'none';
+        });
+
+        // 첫 화면은 대시보드 1만 표시
+        document.getElementById("dashboard1").style.display = 'block';
+    };
+        document.getElementById("dashboardSelector").addEventListener("change", function() {
+            // 선택된 대시보드 가져오기
+            var selectedDashboard = this.value;
+            
+            // 모든 대시보드 숨기기
+            var dashboards = document.querySelectorAll(".dashboard");
+            dashboards.forEach(function(dashboard) {
+                dashboard.style.display = 'none';
+            });
+
+            // 선택된 대시보드 표시
+            if (selectedDashboard) {
+                document.getElementById(selectedDashboard).style.display = 'block';
+            }
+        });
+    </script>
     <script src="dropdownMenu.js"></script>
 </body>
 </html>
