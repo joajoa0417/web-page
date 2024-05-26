@@ -1,26 +1,49 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var dropdown = document.querySelector('.dropdown'); 
-    dropdown.addEventListener('click', function() {
-        var subMenu = document.querySelector('.subMenu');
-        subMenu.style.display = subMenu.style.display === 'block' ? 'none' : 'block';
-    });
-});
+  var dropdown = document.querySelector('.dropdown'); 
+  dropdown.addEventListener('click', function() {
+      var subMenu = document.querySelector('.subMenu');
+      subMenu.style.display = subMenu.style.display === 'block' ? 'none' : 'block';
+  });
 
-var modal = document.getElementById("csvFile");
-var btn = document.getElementById("csvDownload");
-var span = document.getElementsByClassName("close")[0];
+  // Modal elements
+  var csvModal = document.getElementById("csvFile");
+  var pythonModal = document.getElementById("pythonCodeFile"); 
 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+  // Buttons to open the modals
+  var csvBtn = document.getElementById("csvDownload");
+  var pythonBtn = document.getElementById("pythonDownload"); 
 
-span.onclick = function() {
-  modal.style.display = "none";
-}
+  // Close buttons
+  var csvClose = document.getElementsByClassName("close")[0];
+  var pythonClose = document.getElementsByClassName("close2")[0];
 
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  // Open the CSV modal
+  csvBtn.onclick = function() {
+      csvModal.style.display = "block";
   }
-}
 
+  // Close the CSV modal
+  csvClose.onclick = function() {
+      csvModal.style.display = "none";
+  }
+
+  // Open the Python modal
+  pythonBtn.onclick = function() {
+      pythonModal.style.display = "block";
+  }
+
+  // Close the Python modal
+  pythonClose.onclick = function() {
+      pythonModal.style.display = "none";
+  }
+
+  // Close modals when clicking outside of them
+  window.onclick = function(event) {
+      if (event.target == csvModal) {
+          csvModal.style.display = "none";
+      }
+      if (event.target == pythonModal) {
+          pythonModal.style.display = "none";
+      }
+  }
+});

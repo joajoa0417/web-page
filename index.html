@@ -11,31 +11,41 @@
     
     <!-- 메뉴 버튼과 드롭다운 메뉴 -->
     <div class="dropdown">
-        <button class="dropdown-bar">메뉴</button>
+        <button class="dropdown-bar" onclick="toggleDropdown()">메뉴</button>
         <div class="subMenu">
-            <a href="#" id="csvDownload">csv Download</a>
-            <a href="#">Python Code</a>
+          <a href="#" id="csvDownload">CSV Download</a>
+          <a href="#" id="pythonDownload">Python Code Download</a> 
         </div>
-    </div>
+      </div>
 
      <!-- 콤보 리스트 추가 -->
  <div class="combo-container">
     <label for="dashboardSelector">대시보드를 선택하세요:</label>
     <select id="dashboardSelector">
-        <option value="dashboard1">대시보드 1</option>
-        <option value="dashboard2">대시보드 2</option>
+        <option value="dashboard1">0206 대시보드 1</option>
+        <option value="dashboard2">0206 대시보드 2</option>
     </select>
 </div>
     
     <!--csv 파일 다운로드 창 구현-->
     <div id="csvFile" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>다운로드할 csv 파일을 선택하세요!</h2>
-                <p><a href="https://drive.google.com/file/d/1-9yLKXteh-8xzeEyRprNscQ6k5HTWXd5/view?usp=drive_link.csv" download>0206_pre</a></p>
-                <p><a href="https://drive.google.com/file/d/1-7BG_orNEz7r2LTm_wzKh-RsnZqEntN7/view?usp=drive_link.csv" download>0213_pre</a></p>
+          <span class="close">&times;</span>
+          <h2>다운로드할 csv 파일을 선택하세요!</h2>
+          <p><a href="https://drive.google.com/file/d/1-9yLKXteh-8xzeEyRprNscQ6k5HTWXd5/view?usp=drive_link.csv" download>0206_result</a></p>
+          <p><a href="https://drive.google.com/file/d/1-7BG_orNEz7r2LTm_wzKh-RsnZqEntN7/view?usp=drive_link.csv" download>0213_pre</a></p>
         </div>
-    </div>
+      </div>
+
+    <!--python 전처리 코드 다운로드 창 구현-->
+    <div id="pythonCodeFile" class="modal2">
+        <div class="modal-content2">
+          <span class="close2">&times;</span>
+          <h2>다운로드할 python 전처리 코드 파일을 선택하세요!</h2>
+          <p><a href="https://drive.google.com/file/d/1vzhq8Vj82azf-jvZmTs1449u3PFHZR9x/view?usp=drive_link" download>0206_result 전처리 코드.txt</a></p>
+          <p><a href="https://drive.google.com/file/d/1vzhq8Vj82azf-jvZmTs1449u3PFHZR9x/view?usp=drive_link" download>0213_pre</a></p>
+        </div>
+      </div>
 
      <!--대시보드1-->
      <div id="dashboard1" class="dashboard">
