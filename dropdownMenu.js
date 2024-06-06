@@ -1,49 +1,49 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var dropdown = document.querySelector('.dropdown'); 
-  dropdown.addEventListener('click', function() {
-      var subMenu = document.querySelector('.subMenu');
-      subMenu.style.display = subMenu.style.display === 'block' ? 'none' : 'block';
-  });
+    // 모달 열기 
+    function toggleModal(modalId) {
+        var modal = document.getElementById(modalId);
+        modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+    }
 
-  // Modal elements
-  var csvModal = document.getElementById("csvFile");
-  var pythonModal = document.getElementById("pythonCodeFile"); 
+    // 네비게이션 바 목록 클릭
+    document.getElementById('csvDownloadNav').addEventListener('click', function() {
+        toggleModal('csvFile');
+    });
 
-  // Buttons to open the modals
-  var csvBtn = document.getElementById("csvDownload");
-  var pythonBtn = document.getElementById("pythonDownload"); 
+    document.getElementById('pythonDownloadNav').addEventListener('click', function() {
+        toggleModal('pythonCodeFile');
+    });
 
-  // Close buttons
-  var csvClose = document.getElementsByClassName("close")[0];
-  var pythonClose = document.getElementsByClassName("close2")[0];
+    document.getElementById('businessNav').addEventListener('click', function() {
+        toggleModal('business');
+    });
 
-  // Open the CSV modal
-  csvBtn.onclick = function() {
-      csvModal.style.display = "block";
-  }
+    document.getElementById('dashboardNav').addEventListener('click', function() {
+        toggleModal('dashboard');
+    });
 
-  // Close the CSV modal
-  csvClose.onclick = function() {
-      csvModal.style.display = "none";
-  }
+    document.getElementById('teamNav').addEventListener('click', function() {
+        toggleModal('team');
+    });
 
-  // Open the Python modal
-  pythonBtn.onclick = function() {
-      pythonModal.style.display = "block";
-  }
+    // 닫기 버튼 구현
+    var closeButtons = document.querySelectorAll('.close');
+    closeButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var modal = this.closest('.modal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
 
-  // Close the Python modal
-  pythonClose.onclick = function() {
-      pythonModal.style.display = "none";
-  }
-
-  // Close modals when clicking outside of them
-  window.onclick = function(event) {
-      if (event.target == csvModal) {
-          csvModal.style.display = "none";
-      }
-      if (event.target == pythonModal) {
-          pythonModal.style.display = "none";
-      }
-  }
+    // 모달 외 클릭 시 모달 닫힘
+    window.addEventListener('click', function(event) {
+        var modals = document.querySelectorAll('.modal');
+        modals.forEach(function(modal) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
 });

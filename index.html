@@ -4,57 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>대시보드 WebPage</title> <!--웹페이지 이름 설정-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>  
-    <h1>생산계획 대시보드 웹페이지</h1>
-    
-    <!-- 메뉴 버튼과 드롭다운 메뉴 -->
-    <div class="dropdown">
-        <button class="dropdown-bar" onclick="toggleDropdown()">메뉴</button>
-        <div class="subMenu">
-          <a href="#" id="csvDownload">CSV Download</a>
-          <a href="#" id="pythonDownload">Python Code Download</a> 
-        </div>
-      </div>
-
+<body> 
+   
+    <!-- 네비게이션 바 추가 -->
+<nav class="navbar">
+    <a href="#" class="logo">
+        <img src="logo.png" alt="Company Logo"> 
+        <span>(주)엠아이큐브솔루션 생산계획 대시보드 웹페이지🌎</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="#" id="businessNav">기업체 소개</a></li>
+        <li><a href="#" id="dashboardNav">대시보드 목적</a></li>
+        <li><a href="#" id="csvDownloadNav">CSV Download</a></li>
+        <li><a href="#" id="pythonDownloadNav">Python Code Download</a></li>
+        <li><a href="#" id="teamNav">팀원 정보</a></li>
+    </ul>
+</nav>
+  
      <!-- 콤보 리스트 추가 -->
  <div class="combo-container">
     <label for="dashboardSelector">대시보드를 선택하세요:</label>
     <select id="dashboardSelector">
-        <option value="dashboard1">0206 대시보드 1</option>
-        <option value="dashboard2">0206 대시보드 2</option>
+        <option value="dashboard1">수요 및 재고차트 (0206)</option>
+        <option value="dashboard2">가동률 및 생산일정 차트(0206)</option>
     </select>
 </div>
     
+    <!--기업체 소개 창 구현-->
+    <div id="business" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>협업 기업 : (주)엠아이큐브솔루션 🏭</h2>
+          <p>* 제조 현장의 생산, 설비 및 품질 관리 프로세스에서 생성되는 다양한 정보를 통합하고 지능화하기 위한 <span style="color: rgb(0, 0, 0); font-weight: bold;">스마트 팩토리 솔루션을 개발</span>하는 소프트웨어 전문 기업</p>
+          <p>* 글로벌 시장의 니즈에 부합하도록 ICBMA(IoT, Cloud, BigData, Mobile, AI) 기술을 적용한 <span style="color: rgb(0, 0, 0); font-weight: bold;">생산 계획 최적화 및 설비 운영 효율 극대화 솔루션을 제공</span>함으로써, <br>
+            setup time과 장기 재고를 줄이며, 설비 가동률 저하 등에 선제적으로 조치할 수 있도록 지원하는 기업</p>
+        </div>
+    </div>
+
+    <!--대시보드 목적 창 구현-->
+    <div id="dashboard" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>대시보드 제작 목적 📊</h2>
+          <p>1️⃣ <span style="color: rgb(255, 24, 116); font-weight: bold;">데이터의 시각화</span>를 통해 복잡한 패턴, 추세 등을 쉽게 파악 가능<br>
+            2️⃣ <span style="color: rgb(255, 24, 116); font-weight: bold;">직관적인 UX/UI 구현</span>으로 사용자의 데이터 이해도 향상<br>
+            3️⃣ <span style="color: rgb(255, 24, 116); font-weight: bold;">여러 데이터 소스를 통합</span>하여 하나의 창으로 확인 가능<br>
+            4️⃣ <span style="color: rgb(255, 24, 116); font-weight: bold;">중요 지표를 한눈에 파악</span>하여 데이터 기반의 의사결정 지원<br>
+            5️⃣<span style="color: rgb(255, 24, 116); font-weight: bold;">사용자가 직접 데이터를 탐색 및 분석</span>할 수 있도록 필터링과 같은 인터랙티브 요소 제공<br><br>
+            <span style="color: rgb(0, 0, 0); font-weight: bold; font-size: 18px;">❝ 제조 현장에서 생성되는 빅데이터를 최대한 활용하여 효율적인 생산 관리 및 성과 개선을 달성함으로써 사업 성장에 기여 ❞</span>
+            </p>
+        </div>
+    </div>
+
     <!--csv 파일 다운로드 창 구현-->
     <div id="csvFile" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
           <h2>다운로드할 csv 파일을 선택하세요!</h2>
-          <p><a href="https://drive.google.com/file/d/1-9yLKXteh-8xzeEyRprNscQ6k5HTWXd5/view?usp=drive_link.csv" download>0206_result</a></p>
-          <p><a href="https://drive.google.com/file/d/1-7BG_orNEz7r2LTm_wzKh-RsnZqEntN7/view?usp=drive_link.csv" download>0213_pre</a></p>
+          <p><a href="https://drive.google.com/file/d/1RmOZc6LgfuoQjH4vuBfzgGRwK5HLuMHR/view?usp=drive_link" download>0206 수요 관련 DATA (원본).csv</a></p>
+          <p><a href="https://drive.google.com/file/d/1-9yLKXteh-8xzeEyRprNscQ6k5HTWXd5/view?usp=drive_link.csv" download>0206 수요 관련 DATA (전처리).csv</a></p>
+          <p><a href="https://drive.google.com/file/d/1g4zLDfHWblWJYUdno_ewQMRS0ktl2Brn/view?usp=drive_link" download>0206 생산 일정 DATA.csv</a></p>  
+          <p><a href="https://drive.google.com/file/d/19v7F8ayeUaviJeFxP9eCwfJlrNdEhOYV/view?usp=drive_link" download>0206 재고 관련 DATA.csv</a></p> 
         </div>
       </div>
 
     <!--python 전처리 코드 다운로드 창 구현-->
-    <div id="pythonCodeFile" class="modal2">
-        <div class="modal-content2">
-          <span class="close2">&times;</span>
+    <div id="pythonCodeFile" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
           <h2>다운로드할 python 전처리 코드 파일을 선택하세요!</h2>
-          <p><a href="https://drive.google.com/file/d/1vzhq8Vj82azf-jvZmTs1449u3PFHZR9x/view?usp=drive_link" download>0206_result 전처리 코드.txt</a></p>
-          <p><a href="https://drive.google.com/file/d/1vzhq8Vj82azf-jvZmTs1449u3PFHZR9x/view?usp=drive_link" download>0213_pre</a></p>
+          <p><a href="https://drive.google.com/file/d/1vzhq8Vj82azf-jvZmTs1449u3PFHZR9x/view?usp=drive_link" download>0206 수요 관련 DATA 전처리 코드.txt</a></p>
         </div>
       </div>
 
+    <!--팀원 정 창 구현-->
+    <div id="team" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>팀원 INFORMATION</h2>
+          <p>👤 김하경 | 📱010-7637-6296 | 📌파이썬 코드 및 웹페이지 제작 <br>
+            👤 하새연 | 📱010-5808-5475 | 📌일정 관리 및 태블로 대시보드 구현 <br>
+            👤 김유진 | 📱010-6329-9039 | 📌태블로 대시보드 구현 및 ppt 제작 <br>
+            👤 박건도 | 📱010-7746-1353 | 📌기업체 멘토 교류 및 excel 정리</p>
+        </div>
+    </div>
+
      <!--대시보드1-->
      <div id="dashboard1" class="dashboard">
-        <div class='tableauPlaceholder' id='viz1716201644825' style='position: relative'><noscript><a href='#'><img alt='대시보드 2 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;02&#47;02062&#47;2_1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='02062&#47;2_1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;02&#47;02062&#47;2_1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='ko-KR' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1716201644825');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        <div class='tableauPlaceholder' id='viz1717686753896' style='position: relative'><noscript><a href='#'><img alt='0206 대시보드 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;WC&#47;WC5ZXRK2N&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;WC5ZXRK2N' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;WC&#47;WC5ZXRK2N&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='ko-KR' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1717686753896');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else { vizElement.style.width='100%';vizElement.style.height='1677px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
     </div>
 
     <!--대시보드2-->
     <div id="dashboard2" class="dashboard">
-        <div class='tableauPlaceholder' id='viz1716805916794' style='position: relative'><noscript><a href='#'><img alt='대시보드 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;02&#47;0206_17161973918210&#47;1_1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='0206_17161973918210&#47;1_1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;02&#47;0206_17161973918210&#47;1_1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1716805916794');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else { vizElement.style.width='100%';vizElement.style.height='1327px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        <div class='tableauPlaceholder' id='viz1717686794075' style='position: relative'><noscript><a href='#'><img alt='0206 대시보드 2 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;02&#47;0206_17176680738280&#47;02062&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='0206_17176680738280&#47;02062' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;02&#47;0206_17176680738280&#47;02062&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='ko-KR' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1717686794075');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
     </div>
 
     <script>
@@ -63,7 +110,7 @@
         dashboards.forEach(function(dashboard) {
             dashboard.style.display = 'none';
         });
-
+6
         // 첫 화면은 대시보드 1만 표시
         document.getElementById("dashboard1").style.display = 'block';
     };
